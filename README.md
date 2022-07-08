@@ -1,2 +1,2 @@
 # ppa
-Binary repository
+Binary repository for packages
