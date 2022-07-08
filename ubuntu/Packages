@@ -1,0 +1,15 @@
+Package: filter-test
+Version: 1.0
+Architecture: all
+Essential: no
+Maintainer: Griswald Brooks
+Installed-Size: 1024
+Filename: ./filter-test.deb
+Size: 1277248
+MD5sum: a6f78c77ee8ceedc07ecdf94821e1b96
+SHA1: 46e64b700f97aef920700f98ba943fa9c6f87f1e
+SHA256: 41853ee4cfb229876ad212ff46487ba5d7fabe3d6f70b80c4f1d84fd7c7ee1c5
+Section: custom
+Priority: optional
+Description: Runs filter gtest
+
