@@ -136,3 +136,4 @@ rosdep-package-name:
 - [Linux dpkg command cheat sheet](https://www.cyberciti.biz/howto/question/linux/dpkg-cheat-sheet.php)
 - [Hosting your own PPA repository on GitHub](https://assafmo.github.io/2019/05/02/ppa-repo-hosted-on-github.html)
 - [Easy way to create a Debian package and local package repository](https://linuxconfig.org/easy-way-to-create-a-debian-package-and-local-package-repository)
+- [How to create a .deb file](https://askubuntu.com/a/493577)
