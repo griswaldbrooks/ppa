@@ -1,0 +1,2 @@
+say-hello:
+  ubuntu: [say-hello]

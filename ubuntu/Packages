@@ -1,15 +1,15 @@
-Package: filter-test
+Package: say-hello
 Version: 1.0
 Architecture: all
 Essential: no
-Maintainer: Griswald Brooks
+Maintainer: Griswald Brooks <griswald.brooks@gmail.com>
 Installed-Size: 1024
-Filename: ./filter-test.deb
-Size: 1277248
-MD5sum: a6f78c77ee8ceedc07ecdf94821e1b96
-SHA1: 46e64b700f97aef920700f98ba943fa9c6f87f1e
-SHA256: 41853ee4cfb229876ad212ff46487ba5d7fabe3d6f70b80c4f1d84fd7c7ee1c5
+Filename: ubuntu/say-hello.deb
+Size: 3476
+MD5sum: 82b204a35bb4bab5888dd00512fdee41
+SHA1: 46a274f6c026dcd227f2f67b1ddb3d8b5008561f
+SHA256: 0e7795bb1772a3749e4d8ada8357d764d4ec3bc670d819d18e6e50d115351dc8
 Section: custom
 Priority: optional
-Description: Runs filter gtest
+Description: Library to create a decorated string
 

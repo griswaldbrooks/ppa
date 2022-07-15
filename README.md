@@ -101,33 +101,92 @@ The parts here are
   - This file is installed locally as `/etc/apt/sources.list.d/package-sources.list`
   - The name of this file locally or in the ppa is not relevant, but the extension must be `.list`
 
-## Updating the PPA 
-To create a signed package, first create a key pair
-
-
-### Adding repository to container
+### Updating the PPA
+Create your local package with debian
 ```
-curl -s --compressed "https://url/ppa/KEY.gpg" | sudo apt-key add -
-sudo curl -s --compressed -o /etc/apt/sources.list.d/ottava.list "https://url/ppa/my_list_file.list"
+mkdir ppa
+cp /path/to/package-name.deb ppa/
+```
+To sign the package, first create a key pair
+```
+gpg --full-gen-key
+```
+This is an interactive prompt.
+Choose the options
+
+- `(1) RSA and RSA (default)`
+- Keysize `4096`
+- Key is valid for `0 = key does not expire`
+- Enter your name and email address
+
+Export your public key to the ppa
+```
+gpg --armor --export "${email address}" > ppa/KEY.gpg
+```
+Create the package meta data
+```
+dpkg-scanpackages --multiversion ppa/ > ppa/Packages
+gzip -k -f ppa/Packages
+```
+Sign the package
+```
+apt-ftparchive release ppa/ > ppa/Release
+gpg --default-key "${email address}" -abs -o - ppa/Release > ppa/Release.gpg
+gpg --default-key "${email address}" --clearsign -o - ppa/Release > ppa/InRelease
+```
+Create the sources list
+```
+echo "deb https://url.private.server/ppa ./" > ppa/package-sources.list
+```
+The package should now be complete.
+Upload the `ppa/` directory to `https://url.private.server/ppa`
+
+> :warning: The address can be http instead of https but cannot redirect.
+
+### Adding repository to docker image
+Now that the ppa is available, the target such as the docker image, needs to add it to `apt`
+```
+curl -s --compressed "https://url.private.server/ppa/KEY.gpg" | sudo apt-key add -
+sudo curl -s --compressed -o /etc/apt/sources.list.d/ottava.list "https://url.private.server/ppa/package-sources.list"
 sudo apt update
 ```
+
+Without using `rosdep`, the package could now be installed using
+```
+sudo apt install package-name
+```
+Which could be useful for testing.
+To list the installed files
+```
+dpkg -L package-name
+```
+To remove the package
+```
+dpkg -P package-name
+```
 ## rosdep
-Discuss what is in `/etc/ros/rosdep/sources.list.d`
+`/etc/ros/rosdep/sources.list.d` directory contains a list of sources that rosdep will use to find packages.
+While in this example, the package manager used is `apt`, rosdep allows the use of other managers, such as `pip`.
 
-Adding repository to the container
+Sources are described in `yaml` files which map rosdep package names to OS, OS version, and package manager. Using the defaults and assuming no difference in OS version, the `yaml` can be as simple as
 ```
-/etc/ros/rosdep/sources.list.d/1-private.list
+package-name:
+  ubuntu: [package-name]
 ```
-In `1-private.list`
+For the general case, this would be put in a file called `base.yaml` and hosted in an accessible location such as
 ```
-yaml https://url/ppa/main/base.yaml
+https://url.private.server/base.yaml
 ```
-
-In `base.yaml`
+The source for this can be added to the container
 ```
-rosdep-package-name:
-  ubuntu: [debian-package-name]
+sudo sh -c 'echo "yaml https://url.private.server/base.yaml" > /etc/ros/rosdep/sources.list.d/1-private.list'
 ```
+Checking the `sources.list.d`
+```
+$ ls /etc/ros/rosdep/sources.list.d/
+1-private.list  20-default.list
+```
+> :warning: The new list does not have to be named *-private.list but should be prefixed with a number larger than 20 as rosdep will check the file with the smallest number first and uses the first source for a package first. rosdep does not merge source entries, even if there is no conflict.
 
 ## References
 
