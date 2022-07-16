@@ -5,7 +5,7 @@ namespace sh {
 
 
 speaker::speaker(std::string const& phrase):sentence_{
-  "tacos"
+  "I want " + phrase
 }{}
 
   std::string const& speaker::operator()() const noexcept {

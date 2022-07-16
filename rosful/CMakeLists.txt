@@ -11,9 +11,10 @@ find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(say-hello REQUIRED)
 
-add_executable(naive src/node.cpp src/incrementer.cpp)
+add_executable(naive src/node.cpp)
 target_include_directories(naive PUBLIC include)
-ament_target_dependencies(naive rclcpp std_msgs say-hello)
+ament_target_dependencies(naive PUBLIC rclcpp)
+target_link_libraries(naive PRIVATE say-hello::say-hello)
 
 install(TARGETS
   naive

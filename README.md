@@ -56,15 +56,15 @@ cp /path/to/package/package-executable package-name/usr/bin/
 ```
 Update the `package-name/DEBIAN/control` file
 ```
-Package: package-name
+Package: say-hello
 Version: 1.0
 Section: custom
 Priority: optional
 Architecture: all
 Essential: no
 Installed-Size: 1024
-Maintainer: Maintainer Name/Group <maintainer.name@its.jnj.com>
-Description: Package description
+Maintainer: Griswald Brooks <griswald.brooks@gmail.com>
+Description: Decorates a string
 ```
 Building the package is then
 ```
@@ -124,15 +124,18 @@ Export your public key to the ppa
 gpg --armor --export "${email address}" > ppa/KEY.gpg
 ```
 Create the package meta data
+> :warning: you must `cd` into the directory or the created debian will
+refer to a duplicate directory that doesn't exist.
 ```
-dpkg-scanpackages --multiversion ppa/ > ppa/Packages
-gzip -k -f ppa/Packages
+cd ubuntu/
+dpkg-scanpackages --multiversion . > Packages
+gzip -k -f Packages
 ```
 Sign the package
 ```
-apt-ftparchive release ppa/ > ppa/Release
-gpg --default-key "${email address}" -abs -o - ppa/Release > ppa/Release.gpg
-gpg --default-key "${email address}" --clearsign -o - ppa/Release > ppa/InRelease
+apt-ftparchive release . > Release
+gpg --default-key "${email address}" -abs -o - Release > Release.gpg
+gpg --default-key "${email address}" --clearsign -o - Release > InRelease
 ```
 Create the sources list
 ```
