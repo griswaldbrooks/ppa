@@ -5,11 +5,11 @@ Essential: no
 Maintainer: Griswald Brooks <griswald.brooks@gmail.com>
 Installed-Size: 1024
 Filename: ./say-hello.deb
-Size: 3476
-MD5sum: 82b204a35bb4bab5888dd00512fdee41
-SHA1: 46a274f6c026dcd227f2f67b1ddb3d8b5008561f
-SHA256: 0e7795bb1772a3749e4d8ada8357d764d4ec3bc670d819d18e6e50d115351dc8
+Size: 4828
+MD5sum: 196eefd750602f0b8ec6ec1159afdb6d
+SHA1: 8be2a45c79a741ae1eb7d16bb54979f761594dad
+SHA256: 1b43a80ea377847b0182a17b274b11644c2d7f34f35e04278f88256b37212a24
 Section: custom
 Priority: optional
-Description: Library to create a decorated string
+Description: Decorates a string
 
