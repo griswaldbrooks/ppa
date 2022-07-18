@@ -1,0 +1,34 @@
+Format: 1.8
+Date: Mon, 18 Jul 2022 12:59:40 -0700
+Source: say-hello
+Binary: say-hello-dev
+Architecture: source amd64
+Version: 1.0-1
+Distribution: unstable
+Urgency: medium
+Maintainer: Griswald Brooks <griswald.brooks@gmail.com>
+Changed-By: Griswald Brooks <griswald@unknown>
+Description:
+ say-hello-dev - Decorates a string
+Changes:
+ say-hello (1.0-1) unstable; urgency=medium
+ .
+   * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+Checksums-Sha1:
+ f0a14aa75485dfe6e13ae1ec225cd680cd221a12 852 say-hello_1.0-1.dsc
+ 8984d62d5b39795fbd7dc563a447146497dfbfc6 1358 say-hello_1.0.orig.tar.gz
+ 1e9f3dad80371fc11bae726cf61b7db0d522c047 7988 say-hello_1.0-1.debian.tar.xz
+ 5c79a73d67ea4093ae104e880d769ca371ee9048 5304 say-hello-dev_1.0-1_amd64.deb
+ a64e2da905890060ffed11159fb65f091dc3a749 7700 say-hello_1.0-1_amd64.buildinfo
+Checksums-Sha256:
+ 0adbbea2038b2868115eb872c77249933fc11681f26dcebb9af09ae8eab80b81 852 say-hello_1.0-1.dsc
+ 9f3912eb5839d8b79bf0c2e0152390595a8af3aefb06cdde0760fff61bac4ae3 1358 say-hello_1.0.orig.tar.gz
+ b44bc9623cb1a8647007c1ff4dc863f3145aa9876f7737153f4084a963cbe0ab 7988 say-hello_1.0-1.debian.tar.xz
+ 813073c6eb17c6f27ccdfcec0c023413f3ef9aa16fea36bc2ecc3721a2bb7301 5304 say-hello-dev_1.0-1_amd64.deb
+ 9802b0d74ec2e3c97f2f4857c7dd4beb885268e213caa69968ec7d3674ed2d6a 7700 say-hello_1.0-1_amd64.buildinfo
+Files:
+ 6d4007194b23ffd9feb943a04bc7b795 852 libs optional say-hello_1.0-1.dsc
+ b7a0a53068c11a98f83915aa52b2fb5c 1358 libs optional say-hello_1.0.orig.tar.gz
+ c50c64cca0a9f25a25add56ba4eb4ead 7988 libs optional say-hello_1.0-1.debian.tar.xz
+ 177d0374610f5c8f0b24bc92db036974 5304 libdevel optional say-hello-dev_1.0-1_amd64.deb
+ a9b8f09217012bd6ac08fc2cf681cde7 7700 libs optional say-hello_1.0-1_amd64.buildinfo

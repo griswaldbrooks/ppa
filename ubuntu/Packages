@@ -13,3 +13,20 @@ Section: custom
 Priority: optional
 Description: Decorates a string
 
+Package: say-hello-dev
+Source: say-hello
+Version: 1.0-1
+Architecture: amd64
+Maintainer: Griswald Brooks <griswald.brooks@gmail.com>
+Installed-Size: 26
+Filename: ./say-hello-dev_1.0-1_amd64.deb
+Size: 5304
+MD5sum: 177d0374610f5c8f0b24bc92db036974
+SHA1: 5c79a73d67ea4093ae104e880d769ca371ee9048
+SHA256: 813073c6eb17c6f27ccdfcec0c023413f3ef9aa16fea36bc2ecc3721a2bb7301
+Section: libdevel
+Priority: optional
+Multi-Arch: same
+Homepage: <insert the upstream URL, if relevant>
+Description: Decorates a string
+

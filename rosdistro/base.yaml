@@ -1,2 +1,2 @@
-say-hello:
-  ubuntu: [say-hello]
+say-hello-dev:
+        ubuntu: [say-hello-dev]

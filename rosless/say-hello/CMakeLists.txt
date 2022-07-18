@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.16)
 
 project(say-hello)
 
-add_compile_options(-std=c++17 -Wall -Wextra -Werror -Wno-unused-parameter -Wno-missing-field-initializers)
+add_compile_options(-Wall -Wextra -Werror -Wno-unused-parameter -Wno-missing-field-initializers)
 
 find_package(GTest REQUIRED)
 include_directories(include ${GTEST_INCLUDE_DIRS})
