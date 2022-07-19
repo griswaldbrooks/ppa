@@ -1,5 +1,5 @@
 find_package(GTest REQUIRED)
 include(GoogleTest)
 add_executable(say-hello-tests say_hello_tests.cpp)
-target_link_libraries(say-hello-tests say-hello GTest::GTest GTest::Main)
+target_link_libraries(say-hello-tests PRIVATE say-hello GTest::Main)
 gtest_discover_tests(say-hello-tests)
