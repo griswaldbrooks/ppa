@@ -1,6 +1,12 @@
 cmake_minimum_required(VERSION 3.16)
 project(say-hello VERSION 1.0.0 LANGUAGES CXX)
 
+# TODO: Upgrade to cmake 3.19 or above and use presets
+# https://alexreinking.com/blog/how-to-use-cmake-without-the-agonizing-pain-part-2.html
+if(CMAKE_CXX_COMPILER_ID MATCHES "(GNU|Clang)")
+    add_compile_options(-Werror -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wsign-conversion)
+endif()
+
 add_library(say-hello src/speaker.cpp)
 target_compile_features(say-hello PUBLIC cxx_std_14)
 target_include_directories(say-hello PUBLIC
