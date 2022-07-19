@@ -1,36 +1,23 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.16)
 project(rosful)
 
-if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  add_compile_options(-Wall -Wextra -Wpedantic)
+# TODO: Upgrade to cmake 3.19 or above and use presets
+# https://alexreinking.com/blog/how-to-use-cmake-without-the-agonizing-pain-part-2.html
+if(CMAKE_CXX_COMPILER_ID MATCHES "(GNU|Clang)")
+    add_compile_options(-Werror -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wsign-conversion)
 endif()
 
-# find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
-find_package(std_msgs REQUIRED)
 find_package(say-hello REQUIRED)
 
-add_executable(naive src/node.cpp)
-target_include_directories(naive PUBLIC include)
-ament_target_dependencies(naive PUBLIC rclcpp)
-target_link_libraries(naive PRIVATE say-hello::say-hello)
+add_executable(node src/node.cpp)
+ament_target_dependencies(node PUBLIC rclcpp)
+target_link_libraries(node PRIVATE say-hello::say-hello)
 
 install(TARGETS
-  naive
+  node
   DESTINATION lib/${PROJECT_NAME}
 )
-
-if(BUILD_TESTING)
-  find_package(ament_lint_auto REQUIRED)
-  # the following line skips the linter which checks for copyrights
-  # comment the line when a copyright and license is added to all source files
-  set(ament_cmake_copyright_FOUND TRUE)
-  # the following line skips cpplint (only works in a git repo)
-  # comment the line when this package is in a git repo and when
-  # a copyright and license is added to all source files
-  set(ament_cmake_cpplint_FOUND TRUE)
-  ament_lint_auto_find_test_dependencies()
-endif()
 
 ament_package()

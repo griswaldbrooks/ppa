@@ -20,7 +20,8 @@ username@rosful-dev:~/ws$ colcon build
 ```shell
 username@rosful-dev:~/ws$ colcon build
 username@rosful-dev:~/ws$ source install/setup.bash
-username@rosful-dev:~/ws$ ros2 run rosful naive
+username@rosful-dev:~/ws$ ros2 run rosful node
+[INFO] [1658266019.972607988] [speaker]: I want tacos
 ```
 
 ## References
