@@ -18,38 +18,38 @@ Changes:
  .
    * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
 Checksums-Sha1:
- 928547fd9b3bb7b493bf2b073931452a8cb9cafd 1772 say-hello_1.0-1.dsc
- 9c104d4beb5b0ac178940f8ef01675a8012b4059 1343 say-hello_1.0.orig.tar.gz
- eb4cfbced9433d752b542730eb3e51e3e2c68595 7984 say-hello_1.0-1.debian.tar.xz
- 2d4b9a2ec2b90290f8b620920fdf52d1170f8fd0 5312 say-hello-dev_1.0-1_amd64.deb
- 31f31791878fc607fd44b28a77a88e4e58c7c061 8623 say-hello_1.0-1_amd64.buildinfo
+ 6f7fd6289bafd9bb61186673e1c5f126d826ee80 1772 say-hello_1.0-1.dsc
+ 36d206c03c6e3046e178321b57d5f661e1a878c8 9835 say-hello_1.0.orig.tar.gz
+ c67dfd6835078a5f16dc01e30a4e1a1cbb0613e0 7852 say-hello_1.0-1.debian.tar.xz
+ ebc61402b6e93daa6a77e256c64fb5801db60ea5 5060 say-hello-dev_1.0-1_amd64.deb
+ c1d14a32eed2f513458900401065e829199111b0 8623 say-hello_1.0-1_amd64.buildinfo
 Checksums-Sha256:
- 2cd5af39cc7ce3fcfd94466f64f7e6c0f0c65cfd3adad50a963a4b9092299b54 1772 say-hello_1.0-1.dsc
- 9644eae3673b10a0cd0997bdba18ad40f7210024ff632f0823d3416e2b796522 1343 say-hello_1.0.orig.tar.gz
- 1c4c378363b1ab4c3f183d8eb5abb37bcb001ec90e3e3bbb35945c7d0ba7711b 7984 say-hello_1.0-1.debian.tar.xz
- 507a5773af53529c4dd5e4573931fab367707e0f62f59c938846e9c90bdb43b8 5312 say-hello-dev_1.0-1_amd64.deb
- 902e2e707c632f609aeb2630b0429eed40c8e7102eb4eeeb07f4f94ba757be63 8623 say-hello_1.0-1_amd64.buildinfo
+ a76c6119b773ed4d80cbd9ff9b097c65cdc6fd32bfa6e3bdbf82981edbdae4f5 1772 say-hello_1.0-1.dsc
+ 0218df5936509f8a4dbf93aa3803a7ba9ed53aa671a5ce04507dc0e400c3275a 9835 say-hello_1.0.orig.tar.gz
+ 581e1286f980fd60c58202cbeacc098fffc503a5d426b785a0d9a47961f673ab 7852 say-hello_1.0-1.debian.tar.xz
+ bfb72cd7a0f4481bd929ce54b953213648781b0e354d82670700917794289884 5060 say-hello-dev_1.0-1_amd64.deb
+ 2910df5988739797732b58543dffbc042a424fdd389aaaa4b9f7f2cb00a07f07 8623 say-hello_1.0-1_amd64.buildinfo
 Files:
- 046b65bdaf29180aa28ffee1ee8c0786 1772 libs optional say-hello_1.0-1.dsc
- c5fec67aa58298b360be157228c69ce6 1343 libs optional say-hello_1.0.orig.tar.gz
- df61a9612288174af5f825dc3d094e9d 7984 libs optional say-hello_1.0-1.debian.tar.xz
- 1a540dd110e88776265c4478ee7e019f 5312 libdevel optional say-hello-dev_1.0-1_amd64.deb
- 04b109e269a9d48eebccc0174fa1d532 8623 libs optional say-hello_1.0-1_amd64.buildinfo
+ ef55967d172c542206804392676afdc5 1772 libs optional say-hello_1.0-1.dsc
+ f3e6162608f92b3d99b42d26eeb7ce4f 9835 libs optional say-hello_1.0.orig.tar.gz
+ 6c833fc3b76567a9465f7c550b5a3457 7852 libs optional say-hello_1.0-1.debian.tar.xz
+ b4bdb300c878fc8ec10b958db579fabc 5060 libdevel optional say-hello-dev_1.0-1_amd64.deb
+ 3bfc543e5a076e1ef71dbf2a922dbe22 8623 libs optional say-hello_1.0-1_amd64.buildinfo
 
 -----BEGIN PGP SIGNATURE-----
 
-iQJOBAEBCgA4FiEEyBWiwI6A65FAmIKGPXYZp3crsvEFAmLWGxcaHGdyaXN3YWxk
-LmJyb29rc0BnbWFpbC5jb20ACgkQPXYZp3crsvFkVQ/+LeYtHxnac19fM/k7RytM
-P40w3AKwkkJnt9zRFkD1TzNSISK0fMBBWlkTvMu38L6f6bVfUtAGa8398K0X9pjF
-FgbC9Gs7WDaYBD3Hrgm5CrxdQkFCow31yxQxteQO5C51qHoT3n9mJCbvykmFM3ct
-UAmZl2qf+I4Q+j0OlLNH4lfXI1sNIXJ/NTUNLfU/WpZhHeK+STPX4d/QafCPvacM
-HP0EEp5aNN4DigveXRH1G6MGeSZb7+A9epyORoc4ThUEFVzntkYqq9wjhnl3qITh
-lKEd0Xtnd29YmU0Xq6whtqkp5cWMETIG3u+4RKb/CKh9slq+d41Uvy+ScKdmwpDU
-7yvqw6UJuL1mxhUIJz2Hmt0dh4dwMNoiehho0VijVXgnDuQE/BSEd8EIeaTZmBN4
-WD1/i3oYCi1ttwVVPwiW3hWdRtt60DDQOVPucRoSuLMmW+LgIh+2P1lJN9mXYiZs
-OgpiPkN3vbiqHX3vQslDVyLLuHC7kEmPF43VoD3ZFHAqYIDnguFF0mgu4cCaQao4
-mqNXcaikYf0YgEXcvpru9TCPIxc8MRIHtiJiokBdQq2ynoIfMw7Qf/9EGcelvWzg
-Ox2g/7YLme5ygoKGcu8fa3XhDtAEqX1tz6G99llMDJmjKuGNCeKeoTFvzPfW8Ptj
-4N2mG45VD8IFT65KBAr9HNQ=
-=c/N6
+iQJOBAEBCgA4FiEEyBWiwI6A65FAmIKGPXYZp3crsvEFAmLW9rQaHGdyaXN3YWxk
+LmJyb29rc0BnbWFpbC5jb20ACgkQPXYZp3crsvG6YxAAsEpxndI3uS86U6yRHLGH
+qbCRjKnryf8hEUgSWX0MEmxkbTsF9bal2DkFdtaS9F7eZvtXOizuPQcS4Tk3NqUX
+wWUbLT1KDXXs25UahelzlMeiBpboHn00Hfa700CujC6b3p3PC7IAEYFSNznuF3Ri
+rnmDyXjZPMh9X4CWAQ3tiCVl+0sufRHltvA38Xw2zDpbpUMyjW89nFS0XJg1z+B4
+mgT6ae4a9pxolDGSL4tZb5EZsWKWF4jC9/MlzBhv+RW7MTSNUyFODGzH9i5I/ycN
+oy03KSxdIKbemh9RAuwApSJJA2a9UwNZHDhCFEG79VgddinbSEH24GqcVzu+u8nP
+tEkR2Eef3P/DZrQrGw0dAKPHwOZ4uy+/yU+gtsY31tTP0WD3i0KgSx+O3fwEm8n7
+iwnzNurExCusOA9u7Uoe01izoKrB15iCMLb64Oj349cNPp4IFzikZvyyEKpyM5BX
+yJhy151+bepSd1qjxhsP/9pMT/WghpcqfyT2pQljSX+lKlbayXRtDxs145EEK2J+
+bcAWnWfA1SoeAc7XOOM8+udKAhjEiRTceFiDwqLa2Cv+FvJTtxCH/rzmCmBoKyWp
+uGajzoi5ul9xk0WlqzlLjQX67nEYqUXbhLedOCACsnqafYKP8GpcJ+cU4ZjnJ9Kd
+uMe5Q+X4FgoXUYi+AqNZieA=
+=VtIr
 -----END PGP SIGNATURE-----

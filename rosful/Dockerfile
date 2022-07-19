@@ -50,7 +50,8 @@ RUN curl -s --compressed "http://griswaldbrooks.com/ppa/ubuntu/KEY.gpg" | sudo a
     && apt update
 
 # Add private rosdep source
-RUN sudo sh -c 'echo "yaml http://griswaldbrooks.com/ppa/rosdistro/base.yaml" > /etc/ros/rosdep/sources.list.d/1-private.list'
+# RUN sudo sh -c 'echo "yaml http://griswaldbrooks.com/ppa/rosdistro/base.yaml" > /etc/ros/rosdep/sources.list.d/1-private.list'
+RUN echo "yaml http://griswaldbrooks.com/ppa/rosdistro/base.yaml" > /etc/ros/rosdep/sources.list.d/1-private.list
 
 # build source dependencies
 WORKDIR /opt/upstream

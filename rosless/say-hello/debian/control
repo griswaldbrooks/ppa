@@ -1,0 +1,16 @@
+Source: say-hello
+Priority: optional
+Maintainer: Griswald Brooks <griswald.brooks@gmail.com>
+Build-Depends: debhelper-compat (= 12), cmake
+Standards-Version: 4.4.1
+Section: libs
+Homepage: <insert the upstream URL, if relevant>
+#Vcs-Browser: https://salsa.debian.org/debian/say-hello
+#Vcs-Git: https://salsa.debian.org/debian/say-hello.git
+
+Package: say-hello-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends: ${misc:Depends}
+Description: Decorates a string

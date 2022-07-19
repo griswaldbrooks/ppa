@@ -11,7 +11,7 @@ Creating debians that rosdep can consume can be broken up into three major steps
 ## Debian binary package
 Debian binary packages are what are installed when running
 ```
-sudo apt install debian-package-name
+sudo apt install package-name
 ```
 
 This differs from a debian source package which also contains source code and instructions for building the binary. Creating debian source packages is not required to create debian binaries.
@@ -32,43 +32,16 @@ $ name-of-executable
 For packages to be used in other C++ projects, a debian might install to
 
 ```
-/usr/include/package-name/header-name.h
-/usr/lib/x86_64-linux-gnu/libpackage-name.so
+/usr/include/package-name/speaker.hpp
+/usr/lib/cmake/package-name/package-nameConfig.cmake
+/usr/lib/cmake/package-name/package-nameTargets-none.cmake
+/usr/lib/cmake/package-name/package-nameTargets.cmake
+/usr/lib/libpackage-name.a
 ```
-
-### Creating a debian
-To create a debian binary a directory structure containing the target install locations and metadata control file is made. For example, the below procedure for packaging a single binary will produce
+Which could then be linked to in your cmake project.
 ```
-$ tree package-name
-package-name
-|-- DEBIAN
-|   `-- control
-`-- usr
-    `-- bin
-        `-- package-executable
-```
-Creating the package is then
-```
-mkdir -p package-name/DEBIAN
-touch package-name/DEBIAN/control
-mkdir -p package-name/usr/bin/
-cp /path/to/package/package-executable package-name/usr/bin/
-```
-Update the `package-name/DEBIAN/control` file
-```
-Package: say-hello
-Version: 1.0
-Section: custom
-Priority: optional
-Architecture: all
-Essential: no
-Installed-Size: 1024
-Maintainer: Griswald Brooks <griswald.brooks@gmail.com>
-Description: Decorates a string
-```
-Building the package is then
-```
-dpkg-deb --build package-name
+find_package(package-name REQUIRED)
+target_link_libraries(target PRIVATE package-namespace::package-name)
 ```
 
 ### Creating a debian
@@ -137,6 +110,38 @@ Multi-Arch: same
 Depends: ${misc:Depends}
 Description: Decorates a string
 ```
+Update the `copyright` file
+```
+vim debian/copyright
+```
+to be
+```
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+
+Files: *
+Copyright: 2022, Griswald Brooks
+License: Expat
+
+License: Expat
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ .
+ The above copyright notice and this permission notice shall be included in all
+ copies or substantial portions of the Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
+```
+
 Remove extra `.install` files since there is only one library
 ```
 rm debian/say-hello1.install debian/say-hello-dev.install
@@ -155,12 +160,6 @@ Dockerfile       README.md  say-hello_1.0-1_amd64.buildinfo  say-hello_1.0-1.deb
 From the `say-hello` directory, clean the build artifacts
 ```
 debclean
-```
-Move the debian files to the `ubuntu` directory.
-```
-cd ..
-mv say-hello_1.0* ../ubuntu/
-mv say-hello-dev_1.0-1_amd64.deb ../ubuntu/
 ```
 
 ## PPA
@@ -194,11 +193,13 @@ The parts here are
   - The name of this file locally or in the ppa is not relevant, but the extension must be `.list`
 
 ### Updating the PPA
-Create your local package with debian
+Move debian files into package directory
 ```
-mkdir ppa
-cp /path/to/package-name.deb ppa/
+mv rosless/say-hello_1.0* ubuntu/
+mv rosless/say-hello-dev_1.0-1_amd64.deb ubuntu/
 ```
+While the `.deb` is all that is required, the other files allow debians to be
+reproduced.
 To sign the package, first create a key pair
 ```
 gpg --full-gen-key
@@ -213,11 +214,12 @@ Choose the options
 
 Export your public key to the ppa
 ```
-gpg --armor --export "${email address}" > ppa/KEY.gpg
+gpg --armor --export $DEBEMAIL > ppa/KEY.gpg
 ```
 Create the package meta data
 > :warning: you must `cd` into the directory or the created debian will
 refer to a duplicate directory that doesn't exist.
+
 ```
 cd ubuntu/
 dpkg-scanpackages --multiversion . > Packages
@@ -226,38 +228,38 @@ gzip -k -f Packages
 Sign the package
 ```
 apt-ftparchive release . > Release
-gpg --default-key "${email address}" -abs -o - Release > Release.gpg
-gpg --default-key "${email address}" --clearsign -o - Release > InRelease
+gpg --default-key $DEBEMAIL -abs -o - Release > Release.gpg
+gpg --default-key $DEBEMAIL --clearsign -o - Release > InRelease
 ```
 Create the sources list
 ```
-echo "deb https://url.private.server/ppa ./" > ppa/package-sources.list
+echo "deb http://griswaldbrooks.com/ppa/ubuntu/ ./" > ppa/package-sources.list
 ```
-The package should now be complete.
-Upload the `ppa/` directory to `https://url.private.server/ppa`
-
 > :warning: The address can be http instead of https but cannot redirect.
+
+The package should now be complete.
+Upload the `ppa/` directory to `https://github.com/griswaldbrooks/ppa`
 
 ### Adding repository to docker image
 Now that the ppa is available, the target such as the docker image, needs to add it to `apt`
 ```
-curl -s --compressed "https://url.private.server/ppa/KEY.gpg" | sudo apt-key add -
-sudo curl -s --compressed -o /etc/apt/sources.list.d/ottava.list "https://url.private.server/ppa/package-sources.list"
+sudo curl -s --compressed "http://griswaldbrooks.com/ppa/ubuntu/KEY.gpg" | sudo apt-key add -
+sudo curl -s --compressed -o /etc/apt/sources.list.d/say-hello.list "http://griswaldbrooks.com/ppa/ubuntu/say-hello-sources.list"
 sudo apt update
 ```
 
 Without using `rosdep`, the package could now be installed using
 ```
-sudo apt install package-name
+sudo apt install say-hello-dev
 ```
 Which could be useful for testing.
 To list the installed files
 ```
-dpkg -L package-name
+dpkg -L say-hello-dev
 ```
 To remove the package
 ```
-dpkg -P package-name
+dpkg -P say-hello-dev
 ```
 ## rosdep
 `/etc/ros/rosdep/sources.list.d` directory contains a list of sources that rosdep will use to find packages.
@@ -265,23 +267,23 @@ While in this example, the package manager used is `apt`, rosdep allows the use 
 
 Sources are described in `yaml` files which map rosdep package names to OS, OS version, and package manager. Using the defaults and assuming no difference in OS version, the `yaml` can be as simple as
 ```
-package-name:
-  ubuntu: [package-name]
+say-hello-dev:
+        ubuntu: [say-hello-dev]
 ```
 For the general case, this would be put in a file called `base.yaml` and hosted in an accessible location such as
 ```
-https://url.private.server/base.yaml
+http://griswaldbrooks.com/ppa/rosdistro/base.yaml
 ```
 The source for this can be added to the container
 ```
-sudo sh -c 'echo "yaml https://url.private.server/base.yaml" > /etc/ros/rosdep/sources.list.d/1-private.list'
+sudo sh -c 'echo "yaml http://griswaldbrooks.com/ppa/rosdistro/base.yaml" > /etc/ros/rosdep/sources.list.d/1-private.list'
 ```
 Checking the `sources.list.d`
 ```
 $ ls /etc/ros/rosdep/sources.list.d/
 1-private.list  20-default.list
 ```
-> :warning: The new list does not have to be named *-private.list but should be prefixed with a number larger than 20 as rosdep will check the file with the smallest number first and uses the first source for a package first. rosdep does not merge source entries, even if there is no conflict.
+> :warning: The new list does not have to be named *-private.list but should be prefixed with a number smaller than 20 as rosdep will check the file with the smallest number first and uses the first source for a package first. rosdep does not merge source entries, even if there is no conflict.
 
 ## References
 
@@ -291,3 +293,6 @@ $ ls /etc/ros/rosdep/sources.list.d/
 - [Hosting your own PPA repository on GitHub](https://assafmo.github.io/2019/05/02/ppa-repo-hosted-on-github.html)
 - [Easy way to create a Debian package and local package repository](https://linuxconfig.org/easy-way-to-create-a-debian-package-and-local-package-repository)
 - [How to create a .deb file](https://askubuntu.com/a/493577)
+
+## Appendix
+- While not best practice, legacy debian build instructions using `dpkg-deb` are [here](docs/LEGACY-debian-build.md)

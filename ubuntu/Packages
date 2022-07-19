@@ -5,10 +5,10 @@ Architecture: amd64
 Maintainer: Griswald Brooks <griswald.brooks@gmail.com>
 Installed-Size: 26
 Filename: ./say-hello-dev_1.0-1_amd64.deb
-Size: 5312
-MD5sum: 1a540dd110e88776265c4478ee7e019f
-SHA1: 2d4b9a2ec2b90290f8b620920fdf52d1170f8fd0
-SHA256: 507a5773af53529c4dd5e4573931fab367707e0f62f59c938846e9c90bdb43b8
+Size: 5060
+MD5sum: b4bdb300c878fc8ec10b958db579fabc
+SHA1: ebc61402b6e93daa6a77e256c64fb5801db60ea5
+SHA256: bfb72cd7a0f4481bd929ce54b953213648781b0e354d82670700917794289884
 Section: libdevel
 Priority: optional
 Multi-Arch: same
