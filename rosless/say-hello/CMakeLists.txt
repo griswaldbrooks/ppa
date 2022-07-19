@@ -8,7 +8,7 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "(GNU|Clang)")
 endif()
 
 add_library(say-hello src/speaker.cpp)
-target_compile_features(say-hello PUBLIC cxx_std_14)
+target_compile_features(say-hello PUBLIC cxx_std_17)
 target_include_directories(say-hello PUBLIC
 	$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 	$<INSTALL_INTERFACE:include>
