@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.16)
-project(rosful)
+project(rosful LANGUAGES CXX)
 
 # TODO: Upgrade to cmake 3.19 or above and use presets
 # https://alexreinking.com/blog/how-to-use-cmake-without-the-agonizing-pain-part-2.html
 if(CMAKE_CXX_COMPILER_ID MATCHES "(GNU|Clang)")
-    add_compile_options(-Werror -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wsign-conversion)
+  add_compile_options(-Werror -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wsign-conversion)
 endif()
 
 find_package(ament_cmake REQUIRED)
