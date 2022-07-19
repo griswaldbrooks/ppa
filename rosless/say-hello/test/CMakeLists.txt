@@ -1,5 +1,3 @@
-cmake_minimum_required(VERSION 3.16)
-project(say-hello-tests)
 find_package(GTest REQUIRED)
 include(GoogleTest)
 add_executable(say-hello-tests say_hello_tests.cpp)
