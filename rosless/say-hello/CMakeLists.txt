@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.16)
 project(say-hello VERSION 1.0.0 LANGUAGES CXX)
 
 add_library(say-hello src/speaker.cpp)
+target_compile_features(say-hello PUBLIC cxx_std_14)
 target_include_directories(say-hello PUBLIC
 	$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 	$<INSTALL_INTERFACE:include>
