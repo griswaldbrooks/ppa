@@ -1,2 +1,1 @@
-say-hello/
-*.deb
+rosless/say-hello/debian/

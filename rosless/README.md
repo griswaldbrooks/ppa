@@ -1,38 +1,35 @@
 # rosless
 Demo environment for building a rosless C++ package.
 
-# Development Container
+## Development Container
 Build a new development image
 ```shell
 mkdir -p ~/.rosless/ccache
-export UIDGID=$(id -u):$(id -g)
-docker compose -f compose.dev.yml build
+export UIDGID=$(id -u):$(id -g); docker compose -f compose.dev.yml build
 ```
 Start an interactive development container
 ```shell
-docker compose -f compose.dev.yml run development
+export UIDGID=$(id -u):$(id -g); docker compose -f compose.dev.yml run development
 ```
 Build the repository in the container
 ```shell
-username@rosless-dev:~/ws$ mkdir build && cd build
-username@rosless-dev:~/ws/build$ cmake ~/ws/src/rosless/
-username@rosless-dev:~/ws/build$ cmake --build .
+username@rosless-dev:~/ws$ cmake -S src/rosless/say-hello -B build -DCMAKE_BUILD_TYPE=Release
+username@rosless-dev:~/ws$ cmake --build build/
 ```
 
-## Installation directory
+## Test
 ```shell
-username@rosless-dev:~/ws$ mkdir build && cd build
-username@rosless-dev:~/ws/build$ cmake ~/ws/src/rosless/ -DCMAKE_INSTALL_PREFIX=../install
-username@rosless-dev:~/ws/build$ cmake --build .
-username@rosless-dev:~/ws/build$ cmake --install .
+username@rosless-dev:~/ws cd build
+username@rosless-dev:~/ws/build$ ctest
 ```
 
-# Test
+## Install
 ```shell
-username@rosless-dev:~/ws/build$ ./say-hello/say_hello_tests
+username@rosless-dev:~/ws$ cmake --install build/ --prefix install/
 ```
 
-# Description
+
+## Description
 The development container allows developers to sandbox repository dependencies
 from their host machine while allowing them to use familiar development tools.
 

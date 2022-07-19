@@ -1,18 +1,3 @@
-Package: say-hello
-Version: 1.0
-Architecture: all
-Essential: no
-Maintainer: Griswald Brooks <griswald.brooks@gmail.com>
-Installed-Size: 1024
-Filename: ./say-hello.deb
-Size: 3868
-MD5sum: 42510a830ebc994c04025813189013dc
-SHA1: 5a35791e098a25b96a212d75ff1d8fa27374b891
-SHA256: 193296b9579373ec0f93a711c3f7e31023c6164d2546d69bf0cd5e8f6838bf19
-Section: custom
-Priority: optional
-Description: Decorates a string
-
 Package: say-hello-dev
 Source: say-hello
 Version: 1.0-1
@@ -20,10 +5,10 @@ Architecture: amd64
 Maintainer: Griswald Brooks <griswald.brooks@gmail.com>
 Installed-Size: 26
 Filename: ./say-hello-dev_1.0-1_amd64.deb
-Size: 5304
-MD5sum: 177d0374610f5c8f0b24bc92db036974
-SHA1: 5c79a73d67ea4093ae104e880d769ca371ee9048
-SHA256: 813073c6eb17c6f27ccdfcec0c023413f3ef9aa16fea36bc2ecc3721a2bb7301
+Size: 5312
+MD5sum: 1a540dd110e88776265c4478ee7e019f
+SHA1: 2d4b9a2ec2b90290f8b620920fdf52d1170f8fd0
+SHA256: 507a5773af53529c4dd5e4573931fab367707e0f62f59c938846e9c90bdb43b8
 Section: libdevel
 Priority: optional
 Multi-Arch: same

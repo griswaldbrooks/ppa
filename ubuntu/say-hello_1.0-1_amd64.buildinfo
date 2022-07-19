@@ -1,20 +1,23 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
 Format: 1.0
 Source: say-hello
 Binary: say-hello-dev
 Architecture: amd64 source
 Version: 1.0-1
 Checksums-Md5:
- 6d4007194b23ffd9feb943a04bc7b795 852 say-hello_1.0-1.dsc
- 177d0374610f5c8f0b24bc92db036974 5304 say-hello-dev_1.0-1_amd64.deb
+ 046b65bdaf29180aa28ffee1ee8c0786 1772 say-hello_1.0-1.dsc
+ 1a540dd110e88776265c4478ee7e019f 5312 say-hello-dev_1.0-1_amd64.deb
 Checksums-Sha1:
- f0a14aa75485dfe6e13ae1ec225cd680cd221a12 852 say-hello_1.0-1.dsc
- 5c79a73d67ea4093ae104e880d769ca371ee9048 5304 say-hello-dev_1.0-1_amd64.deb
+ 928547fd9b3bb7b493bf2b073931452a8cb9cafd 1772 say-hello_1.0-1.dsc
+ 2d4b9a2ec2b90290f8b620920fdf52d1170f8fd0 5312 say-hello-dev_1.0-1_amd64.deb
 Checksums-Sha256:
- 0adbbea2038b2868115eb872c77249933fc11681f26dcebb9af09ae8eab80b81 852 say-hello_1.0-1.dsc
- 813073c6eb17c6f27ccdfcec0c023413f3ef9aa16fea36bc2ecc3721a2bb7301 5304 say-hello-dev_1.0-1_amd64.deb
+ 2cd5af39cc7ce3fcfd94466f64f7e6c0f0c65cfd3adad50a963a4b9092299b54 1772 say-hello_1.0-1.dsc
+ 507a5773af53529c4dd5e4573931fab367707e0f62f59c938846e9c90bdb43b8 5312 say-hello-dev_1.0-1_amd64.deb
 Build-Origin: Ubuntu
 Build-Architecture: amd64
-Build-Date: Mon, 18 Jul 2022 13:02:48 -0700
+Build-Date: Mon, 18 Jul 2022 19:46:46 -0700
 Build-Tainted-By:
  merged-usr-via-symlinks
 Installed-Build-Depends:
@@ -227,4 +230,22 @@ Installed-Build-Depends:
 Environment:
  DEB_BUILD_OPTIONS="parallel=12"
  LANG="en_US.UTF-8"
- SOURCE_DATE_EPOCH="1658174380"
+ SOURCE_DATE_EPOCH="1658198507"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJOBAEBCgA4FiEEyBWiwI6A65FAmIKGPXYZp3crsvEFAmLWGxYaHGdyaXN3YWxk
+LmJyb29rc0BnbWFpbC5jb20ACgkQPXYZp3crsvGUnRAAihk5kHo+YC6WabUA9rTR
+8mYxuTF9iICJhByxOLyZkAVOSVjaKlsNFNdV4/R2pd3t5a0outxiuO3lgIZAFShz
+pPIIVQkrjWGMI1hmu16p3WVNX4cky6sfwdtIyDvcBwxf6uFN8Y7HkMDDfSTXznFE
+dV/24A0Ba9NfYwyDVNAPgJu40qIGi1UMjO5B1sjoJtsWBMwgXbmzEVOjjzkglz9J
+GnwTfajmTeF+0cNhSQha2e/LvG5tDwjeYdCz4BhFzKFEn3HbS9mfbjCwrXnL0Mi4
+OIr3EOFIKaQRHgn617oxoAwVBlN35bBzMVaRIpPAlwDScrF6NBLM2uO8lJ2bYcRp
+LPN1+3uIX6WRTy9xw5upbmiDgPcB0AItP7tWJLSRPIoOikPMnBav0K3dWofzmG9q
+z6+wZ8nk+85Z/EU6eqBsqRuiDubItWiTL+d8PF097dh2Gudn8Ay5wuRS6U4G92TQ
+nBBIaQCF8NiOtQTroto4mIqfEBlcxs5nhPh2/xdYm178q7oYTnV1D0WSu+qlKPPa
+afrKLHJDCpBozswLoTByMtepkwKI08ddGlG6PDGQbUEkZ4plnbl1WqSS+BSyKiif
+TNW+NV1ZbnlP97vVc6oOU31FkhxNpuc3ma54VuqFaTUMYKt2mBdREVDouIHwAaaz
+wYqjEP2tuvWMwQfR9J/vkXw=
+=BaRp
+-----END PGP SIGNATURE-----

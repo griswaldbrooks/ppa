@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.16)
+project(say-hello-tests)
+find_package(GTest REQUIRED)
+include(GoogleTest)
+add_executable(say-hello-tests say_hello_tests.cpp)
+target_link_libraries(say-hello-tests say-hello GTest::GTest GTest::Main)
+gtest_discover_tests(say-hello-tests)

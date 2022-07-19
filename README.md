@@ -71,6 +71,98 @@ Building the package is then
 dpkg-deb --build package-name
 ```
 
+### Creating a debian
+`dh_make` is used to make a debian package structure.
+`dpkg-buildpackage` is used to build the package.
+`debclean` is useful for cleaning up after the process.
+```
+sudo apt install -y dh-make devscripts
+```
+Export name and email which is used by `dh_make`
+```
+export DEBEMAIL="griswald.brooks@gmail.com"
+export DEBFULLNAME="Griswald Brooks"
+```
+Archive the source code for use with `dh_make`
+```
+cd rosless/
+tar -czf say-hello_1.0.orig.tar.gz say-hello/
+```
+Generate the package structure and choose `library` as the package type
+```
+cd say-hello/
+dh_make -p say-hello_1.0
+```
+You should see
+```
+Type of package: (single, indep, library, python)
+[s/i/l/p]?
+Maintainer Name     : Griswald Brooks
+Email-Address       : griswald.brooks@gmail.com
+Date                : Mon, 18 Jul 2022 19:41:47 -0700
+Package Name        : say-hello
+Version             : 1.0
+License             : blank
+Package Type        : library
+Are the details correct? [Y/n/q]
+Skipping creating ../say-hello_1.0.orig.tar.gz because it already exists
+Currently there is not top level Makefile. This may require additional tuning
+Done. Please edit the files in the debian/ subdirectory now.
+
+
+Make sure you edit debian/control and change the Package: lines from
+say-helloBROKEN to something else, such as say-hello1
+```
+Update the `control` file
+```
+vim debian/control
+```
+Add `cmake` to `Build-Depends`, remove `BROKEN` sections, update `Depends`
+The result should look like
+```
+Source: say-hello
+Priority: optional
+Maintainer: Griswald Brooks <griswald.brooks@gmail.com>
+Build-Depends: debhelper-compat (= 12), cmake
+Standards-Version: 4.4.1
+Section: libs
+Homepage: <insert the upstream URL, if relevant>
+#Vcs-Browser: https://salsa.debian.org/debian/say-hello
+#Vcs-Git: https://salsa.debian.org/debian/say-hello.git
+
+Package: say-hello-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends: ${misc:Depends}
+Description: Decorates a string
+```
+Remove extra `.install` files since there is only one library
+```
+rm debian/say-hello1.install debian/say-hello-dev.install
+```
+Create the debian. This will build the code.
+From within the `say-hello` directory run
+```
+dpkg-buildpackage
+```
+In the parent directory, you will now see the debian
+```
+$ ls ..
+compose.dev.yml  LICENCE    say-hello                        say-hello_1.0-1_amd64.changes  say-hello_1.0-1.dsc        say-hello-dev_1.0-1_amd64.deb
+Dockerfile       README.md  say-hello_1.0-1_amd64.buildinfo  say-hello_1.0-1.debian.tar.xz  say-hello_1.0.orig.tar.gz
+```
+From the `say-hello` directory, clean the build artifacts
+```
+debclean
+```
+Move the debian files to the `ubuntu` directory.
+```
+cd ..
+mv say-hello_1.0* ../ubuntu/
+mv say-hello-dev_1.0-1_amd64.deb ../ubuntu/
+```
+
 ## PPA
 Once the debian is created, it has to be hosted somewhere accessible to the target devices.
 This location is referred to as a Personal Package Archive (PPA). The directory structure of a PPA looks like

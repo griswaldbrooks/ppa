@@ -1,5 +1,8 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
 Format: 1.8
-Date: Mon, 18 Jul 2022 12:59:40 -0700
+Date: Mon, 18 Jul 2022 19:41:47 -0700
 Source: say-hello
 Binary: say-hello-dev
 Architecture: source amd64
@@ -7,7 +10,7 @@ Version: 1.0-1
 Distribution: unstable
 Urgency: medium
 Maintainer: Griswald Brooks <griswald.brooks@gmail.com>
-Changed-By: Griswald Brooks <griswald@unknown>
+Changed-By: Griswald Brooks <griswald.brooks@gmail.com>
 Description:
  say-hello-dev - Decorates a string
 Changes:
@@ -15,20 +18,38 @@ Changes:
  .
    * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
 Checksums-Sha1:
- f0a14aa75485dfe6e13ae1ec225cd680cd221a12 852 say-hello_1.0-1.dsc
- 8984d62d5b39795fbd7dc563a447146497dfbfc6 1358 say-hello_1.0.orig.tar.gz
- 1e9f3dad80371fc11bae726cf61b7db0d522c047 7988 say-hello_1.0-1.debian.tar.xz
- 5c79a73d67ea4093ae104e880d769ca371ee9048 5304 say-hello-dev_1.0-1_amd64.deb
- a64e2da905890060ffed11159fb65f091dc3a749 7700 say-hello_1.0-1_amd64.buildinfo
+ 928547fd9b3bb7b493bf2b073931452a8cb9cafd 1772 say-hello_1.0-1.dsc
+ 9c104d4beb5b0ac178940f8ef01675a8012b4059 1343 say-hello_1.0.orig.tar.gz
+ eb4cfbced9433d752b542730eb3e51e3e2c68595 7984 say-hello_1.0-1.debian.tar.xz
+ 2d4b9a2ec2b90290f8b620920fdf52d1170f8fd0 5312 say-hello-dev_1.0-1_amd64.deb
+ 31f31791878fc607fd44b28a77a88e4e58c7c061 8623 say-hello_1.0-1_amd64.buildinfo
 Checksums-Sha256:
- 0adbbea2038b2868115eb872c77249933fc11681f26dcebb9af09ae8eab80b81 852 say-hello_1.0-1.dsc
- 9f3912eb5839d8b79bf0c2e0152390595a8af3aefb06cdde0760fff61bac4ae3 1358 say-hello_1.0.orig.tar.gz
- b44bc9623cb1a8647007c1ff4dc863f3145aa9876f7737153f4084a963cbe0ab 7988 say-hello_1.0-1.debian.tar.xz
- 813073c6eb17c6f27ccdfcec0c023413f3ef9aa16fea36bc2ecc3721a2bb7301 5304 say-hello-dev_1.0-1_amd64.deb
- 9802b0d74ec2e3c97f2f4857c7dd4beb885268e213caa69968ec7d3674ed2d6a 7700 say-hello_1.0-1_amd64.buildinfo
+ 2cd5af39cc7ce3fcfd94466f64f7e6c0f0c65cfd3adad50a963a4b9092299b54 1772 say-hello_1.0-1.dsc
+ 9644eae3673b10a0cd0997bdba18ad40f7210024ff632f0823d3416e2b796522 1343 say-hello_1.0.orig.tar.gz
+ 1c4c378363b1ab4c3f183d8eb5abb37bcb001ec90e3e3bbb35945c7d0ba7711b 7984 say-hello_1.0-1.debian.tar.xz
+ 507a5773af53529c4dd5e4573931fab367707e0f62f59c938846e9c90bdb43b8 5312 say-hello-dev_1.0-1_amd64.deb
+ 902e2e707c632f609aeb2630b0429eed40c8e7102eb4eeeb07f4f94ba757be63 8623 say-hello_1.0-1_amd64.buildinfo
 Files:
- 6d4007194b23ffd9feb943a04bc7b795 852 libs optional say-hello_1.0-1.dsc
- b7a0a53068c11a98f83915aa52b2fb5c 1358 libs optional say-hello_1.0.orig.tar.gz
- c50c64cca0a9f25a25add56ba4eb4ead 7988 libs optional say-hello_1.0-1.debian.tar.xz
- 177d0374610f5c8f0b24bc92db036974 5304 libdevel optional say-hello-dev_1.0-1_amd64.deb
- a9b8f09217012bd6ac08fc2cf681cde7 7700 libs optional say-hello_1.0-1_amd64.buildinfo
+ 046b65bdaf29180aa28ffee1ee8c0786 1772 libs optional say-hello_1.0-1.dsc
+ c5fec67aa58298b360be157228c69ce6 1343 libs optional say-hello_1.0.orig.tar.gz
+ df61a9612288174af5f825dc3d094e9d 7984 libs optional say-hello_1.0-1.debian.tar.xz
+ 1a540dd110e88776265c4478ee7e019f 5312 libdevel optional say-hello-dev_1.0-1_amd64.deb
+ 04b109e269a9d48eebccc0174fa1d532 8623 libs optional say-hello_1.0-1_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJOBAEBCgA4FiEEyBWiwI6A65FAmIKGPXYZp3crsvEFAmLWGxcaHGdyaXN3YWxk
+LmJyb29rc0BnbWFpbC5jb20ACgkQPXYZp3crsvFkVQ/+LeYtHxnac19fM/k7RytM
+P40w3AKwkkJnt9zRFkD1TzNSISK0fMBBWlkTvMu38L6f6bVfUtAGa8398K0X9pjF
+FgbC9Gs7WDaYBD3Hrgm5CrxdQkFCow31yxQxteQO5C51qHoT3n9mJCbvykmFM3ct
+UAmZl2qf+I4Q+j0OlLNH4lfXI1sNIXJ/NTUNLfU/WpZhHeK+STPX4d/QafCPvacM
+HP0EEp5aNN4DigveXRH1G6MGeSZb7+A9epyORoc4ThUEFVzntkYqq9wjhnl3qITh
+lKEd0Xtnd29YmU0Xq6whtqkp5cWMETIG3u+4RKb/CKh9slq+d41Uvy+ScKdmwpDU
+7yvqw6UJuL1mxhUIJz2Hmt0dh4dwMNoiehho0VijVXgnDuQE/BSEd8EIeaTZmBN4
+WD1/i3oYCi1ttwVVPwiW3hWdRtt60DDQOVPucRoSuLMmW+LgIh+2P1lJN9mXYiZs
+OgpiPkN3vbiqHX3vQslDVyLLuHC7kEmPF43VoD3ZFHAqYIDnguFF0mgu4cCaQao4
+mqNXcaikYf0YgEXcvpru9TCPIxc8MRIHtiJiokBdQq2ynoIfMw7Qf/9EGcelvWzg
+Ox2g/7YLme5ygoKGcu8fa3XhDtAEqX1tz6G99llMDJmjKuGNCeKeoTFvzPfW8Ptj
+4N2mG45VD8IFT65KBAr9HNQ=
+=c/N6
+-----END PGP SIGNATURE-----
