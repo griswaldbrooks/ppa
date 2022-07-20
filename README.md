@@ -32,7 +32,7 @@ $ name-of-executable
 For packages to be used in other C++ projects, a debian might install to
 
 ```
-/usr/include/package-name/speaker.hpp
+/usr/include/package-name/package-header.hpp
 /usr/lib/cmake/package-name/package-nameConfig.cmake
 /usr/lib/cmake/package-name/package-nameTargets-none.cmake
 /usr/lib/cmake/package-name/package-nameTargets.cmake
