@@ -14,7 +14,7 @@ Debian binary packages are what are installed when running
 sudo apt install package-name
 ```
 
-This differs from a debian source package which also contains source code and instructions for building the binary. Creating debian source packages is not required to create debian binaries.
+This differs from a debian source package which also contains source code and instructions for building the binary. Creating debian source packages is not required to create debian binaries, though recommended to increase traceability and reproducibility.
 
 A debian binary package contains
 - package meta data
@@ -29,7 +29,7 @@ Which, after installed could be run with
 ```
 $ name-of-executable
 ```
-For packages to be used in other C++ projects, a debian might install to
+For C++ library packages, a debian might install to
 
 ```
 /usr/include/package-name/package-header.hpp
@@ -90,7 +90,7 @@ Update the `control` file
 ```
 vim debian/control
 ```
-Add `cmake` to `Build-Depends`, remove `BROKEN` sections, update `Depends`
+Add `cmake` to `Build-Depends`, remove `BROKEN` sections, update `Depends` section.
 The result should look like
 ```
 Source: say-hello
@@ -188,7 +188,7 @@ The parts here are
   - A PPA can container multiple debians or debian versions
 - Sources list
   - `package-sources.list`
-  - This tells apt where to look for packages
+  - This tells `apt` where to look for packages
   - This file is installed locally as `/etc/apt/sources.list.d/package-sources.list`
   - The name of this file locally or in the ppa is not relevant, but the extension must be `.list`
 
@@ -233,12 +233,12 @@ gpg --default-key $DEBEMAIL --clearsign -o - Release > InRelease
 ```
 Create the sources list
 ```
-echo "deb http://griswaldbrooks.com/ppa/ubuntu/ ./" > ppa/package-sources.list
+echo "deb http://griswaldbrooks.com/ppa/ubuntu/ ./" > package-sources.list
 ```
-> :warning: The address can be http instead of https but cannot redirect.
+> :warning: The address can be `http` instead of `https` but cannot redirect.
 
 The package should now be complete.
-Upload the `ppa/` directory to `https://github.com/griswaldbrooks/ppa`
+Push the updated repo.
 
 ### Adding repository to docker image
 Now that the ppa is available, the target such as the docker image, needs to add it to `apt`
