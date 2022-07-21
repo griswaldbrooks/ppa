@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 project(say-hello VERSION 1.0.0 LANGUAGES CXX)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # TODO: Upgrade to cmake 3.19 or above and use presets
 # https://alexreinking.com/blog/how-to-use-cmake-without-the-agonizing-pain-part-2.html
 if(CMAKE_CXX_COMPILER_ID MATCHES "(GNU|Clang)")
