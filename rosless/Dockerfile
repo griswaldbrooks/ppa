@@ -14,12 +14,19 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt update -y && apt install -y \
     build-essential        \
     cmake                  \
+    clang-format           \
+    clang-tidy             \
     git                    \
     lsb-core               \
     python3                \
     python3-pip            \
     sudo                   \
     wget
+
+# install some pip packages needed for testing
+RUN python3 -m pip install -U \
+    pre-commit \
+    cmakelang
 
 # Build gtest and gmock
 RUN apt install -y libgtest-dev &&                                 \

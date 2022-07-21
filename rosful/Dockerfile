@@ -37,7 +37,8 @@ RUN apt-get update \
 
 # install some pip packages needed for testing
 RUN python3 -m pip install -U \
-    pre-commit
+    pre-commit \
+    cmakelang
 
 # setup mixin and update it
 COPY infrastructure/colcon-mixin /opt/colcon-mixin
