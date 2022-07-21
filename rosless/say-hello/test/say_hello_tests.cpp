@@ -1,6 +1,6 @@
-#include "say-hello/speaker.hpp"  // For speaker
+#include "gtest/gtest.h"  // For TEST_*
 
-#include "gtest/gtest.h"                   // For TEST_*
+#include "say-hello/speaker.hpp"  // For speaker
 
 namespace sh::test_hello {
 
